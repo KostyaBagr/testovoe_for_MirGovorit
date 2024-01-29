@@ -5,8 +5,7 @@
 </head>
 <body>
     <h2>Создай свой рецепт за пару секунд</h2>
-    <form method="post" action="{% url 'add_product' %}">
-        {% csrf_token %}
+    <form method="GET" action="{% url 'add_product' %}">
 
         {{ form.weight.label_tag }} {{ form.weight }}<br>
 

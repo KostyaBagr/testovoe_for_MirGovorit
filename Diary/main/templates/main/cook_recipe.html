@@ -5,8 +5,7 @@
 </head>
 <body>
     <h2>Приготовление рецепта</h2>
-    <form method="post" action="{% url 'cook_recipe' %}">
-        {% csrf_token %}
+    <form method="GET" action="{% url 'cook_recipe' %}">
 
         {{ form.recipe.label_tag }}
         <select name="{{ form.recipe.name }}">

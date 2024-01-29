@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipes without Product</title>
+</head>
+<body>
+    <h2>Recipes without Product</h2>
+    <p>Рецепты, где id продукта -  {{ product_id }} отсутвует или присутвует в количестве менее 10 грамм</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.id }}</td>
+                    <td>{{ recipe.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

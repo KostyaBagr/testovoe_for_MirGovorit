@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+</head>
+<body>
+    <h2>Форма</h2>
+    <form method="GET" action="{% url 'show_recipes_without_product' %}">
+
+        {{ form.product.label_tag }}
+        <select name="{{ form.product.name }}">
+            <option value="">Выберите продукт</option>
+            {% for product in products %}
+                <option value="{{ product.id }}" {% if form.product.value == product.id %}selected{% endif %}>{{ product.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>

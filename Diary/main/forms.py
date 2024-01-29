@@ -14,3 +14,8 @@ class AddProductForm(forms.ModelForm):
 class CookRecipeForm(forms.Form):
     """Форма для счетчика приготовленных блюд с ипользованием продукта"""
     recipe = forms.CharField(max_length=100)
+
+
+class ShowRecipesWithoutProductForm(forms.Form):
+    """Форма для отображения блюд без данного продукта"""
+    product = forms.CharField(max_length=100)
