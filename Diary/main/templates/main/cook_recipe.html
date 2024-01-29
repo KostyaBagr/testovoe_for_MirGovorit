@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Приготовить рецепт!</title>
+</head>
+<body>
+    <h2>Приготовление рецепта</h2>
+    <form method="post" action="{% url 'cook_recipe' %}">
+        {% csrf_token %}
+
+        {{ form.recipe.label_tag }}
+        <select name="{{ form.recipe.name }}">
+            <option value="">Выберите рецепт</option>
+            {% for recipe in recipes %}
+                <option value="{{ recipe.id }}" {% if form.recipe.value == recipe.id %}selected{% endif %}>{{ recipe.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Приготовить</button>
+    </form>
+</body>
+</html>
