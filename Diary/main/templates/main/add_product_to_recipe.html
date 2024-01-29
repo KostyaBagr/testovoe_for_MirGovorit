@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создать рецепт!</title>
+</head>
+<body>
+    <h2>Создай свой рецепт за пару секунд</h2>
+    <form method="post" action="{% url 'add_product' %}">
+        {% csrf_token %}
+
+        {{ form.weight.label_tag }} {{ form.weight }}<br>
+
+        {{ form.product.label_tag }}
+        <select name="{{ form.product.name }}">
+            <option value="">---</option>
+            {% for product in products %}
+                <option value="{{ product.id }}" {% if form.product.value == product.id %}selected{% endif %}>{{ product.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        {{ form.recipe.label_tag }}
+        <select name="{{ form.recipe.name }}">
+            <option value="">---</option>
+            {% for recipe in recipes %}
+                <option value="{{ recipe.id }}" {% if form.recipe.value == recipe.id %}selected{% endif %}>{{ recipe.name }}</option>
+            {% endfor %}
+        </select><br>
+
+        <button type="submit">Добавить продукт</button>
+    </form>
+</body>
+</html>
